@@ -1,8 +1,8 @@
 # FinancialAssetManager
 # Sobre o projeto
 
-FinancialAssetManager � um projeto para consultar dados de uma API Externa do Yahoo com dados financeiros e realizar c�lculos de varia��o
-D-1 e relacionado � primeira data do preg�o ( data de abertura de mercado para vendas, compras ).
+FinancialAssetManager é um projeto para consultar dados de uma API Externa do Yahoo com dados financeiros e realizar cálculos de variação
+D-1 e relacionado à primeira data do pregão ( data de abertura de mercado para vendas, compras ).
 
 ## Tecnologias utilizadas
 Back-end:
@@ -10,14 +10,14 @@ Back-end:
 - .NET 6;
 - ASP.NET Core;
 - API;
-- xUnit - Testes Unit�rios;
+- xUnit - Testes Unitários;
 - MongoDB;
 
 ## Arquitetura
 - DDD - Domain-Driven Design;
 
 
-## PR�-REQUISITOS
+## PRÉ-REQUISITOS
 - .NET SDK 6.0.0 ou superior.
 - Visual Studio 2022 ou Visual Studio Code.
 - MongoDB.
@@ -48,7 +48,7 @@ mkdir FinancialProject
 cd FinancialProject
 ```
 
-### clone o reposit�rio - use o comando git clone 
+### clone o repositório - use o comando git clone 
 ```
 git clone https://github.com/ElitonSantana/FinancialAssetManager.git
 ```
@@ -64,7 +64,7 @@ cd FinancialAssetManager
 dotnet run
 ```
 
-### No terminal ir� aparecer o a porta, a URL � a seguinte: ( caso necess�rio, substitua a porta para a informada no terminal)
+### No terminal irá aparecer o a porta, a URL é a seguinte: ( caso necessário, substitua a porta para a informada no terminal)
 ```
 http://localhost:5265/swagger/index.html
 ```
