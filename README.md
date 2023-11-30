@@ -5,7 +5,7 @@ FinancialAssetManager é um projeto para consultar dados de uma API Externa do Ya
 D-1 e relacionado à primeira data do pregão ( data de abertura de mercado para vendas, compras ).
 
 # Tecnologias utilizadas
-# Back end
+### Back end
 - C#;
 - .NET 6;
 - ASP.NET Core;
