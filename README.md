@@ -24,16 +24,30 @@ Back-end:
 
 ## COMO BAIXAR E EXECUTAR O PROJETO
 
+### Crie uma pasta em documentos chamada "FinancialProject" e acesse-a.
+
 ```
-### clonar repositório - use o comando git clone 
+cd Documents
+mkdir FinancialProject
+cd FinancialProject
+```
+
+### clone o repositório - use o comando git clone 
+```
 git clone https://github.com/ElitonSantana/FinancialAssetManager.git
+```
+### acesse a pasta "FinancialAssetManager"
+
+```
+cd FinancialProject
+```
 
 # Use o comando dotnet run no terminal para compilar e executar o projeto C#.
+```
 dotnet run
 ```
 
 # Autor
 
 Eliton Alves de Santana
-
 https://www.linkedin.com/in/eliton-alves-de-santana-69a492198/
