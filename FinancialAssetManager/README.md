@@ -39,12 +39,18 @@ git clone https://github.com/ElitonSantana/FinancialAssetManager.git
 ### acesse a pasta "FinancialAssetManager"
 
 ```
-cd FinancialProject
+cd FinancialAssetManager
+cd FinancialAssetManager
 ```
 
-# Use o comando dotnet run no terminal para compilar e executar o projeto C#.
+### Use o comando dotnet run no terminal para compilar e executar o projeto C#.
 ```
 dotnet run
+```
+
+### No terminal irá aparecer o a porta, a URL é a seguinte: ( caso necessário, substitua a porta para a informada no terminal)
+```
+http://localhost:5265/swagger/index.html
 ```
 
 # Autor
