@@ -7,25 +7,22 @@ namespace FinancialAssetManager.Controllers
     [Route("[controller]")]
     public class AssetManagerController : ControllerBase
     {
-        private readonly ILogger<AssetManagerController> _logger;
         private readonly IAssetManagerService _assetManagerService;
 
-        public AssetManagerController(ILogger<AssetManagerController> logger, IAssetManagerService assetManagerService)
+        public AssetManagerController(IAssetManagerService assetManagerService)
         {
-            _logger = logger;
             _assetManagerService = assetManagerService;
         }
 
         /// <summary>
-        /// Busca de informações online pelo symbol e atualização na base.
+        /// Criação de registro no banco, com base no Symbol.
         /// </summary>
         /// <param name="Symbol"></param>
         /// <returns></returns>
-        [HttpGet]
-        [Route("GetChartOnline")]
-        public async Task<IActionResult> GetChartOnlineAsync(string Symbol)
+        [HttpPost]
+        public async Task<IActionResult> CreateOnline(string Symbol)
         {
-            var result = await _assetManagerService.GetChartOnlineBySymbol(Symbol.ToUpper());
+            var result = await _assetManagerService.CreateChartOnlineBySymbol(Symbol.ToUpper());
             if (!result.isSuccessful)
                 return BadRequest(result.Message);
 
@@ -33,7 +30,22 @@ namespace FinancialAssetManager.Controllers
         }
 
         /// <summary>
-        /// Retorna informaçõões
+        /// Atualização de registro no banco, com base no Symbol.
+        /// </summary>
+        /// <param name="Symbol"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public async Task<IActionResult> UpdateOnline(string Symbol)
+        {
+            var result = await _assetManagerService.UpdateChartOnlineBySymbol(Symbol.ToUpper());
+            if (!result.isSuccessful)
+                return BadRequest(result.Message);
+
+            return Ok(result.Value);
+        }
+
+        /// <summary>
+        /// Retorna informações da base a partir de um symbol.
         /// </summary>
         /// <param name="Symbol"></param>
         /// <returns></returns>
@@ -49,6 +61,13 @@ namespace FinancialAssetManager.Controllers
             return Ok(result.Value);
         }
 
+        /// <summary>
+        /// Retorna informação da base com relação a um symbol ( ativo ) e parâmetros de variação.
+        /// </summary>
+        /// <param name="Symbol"></param>
+        /// <param name="Days"></param>
+        /// <param name="AllDays"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("GetChartVariationWithRange")]
         public async Task<IActionResult> GetChartVariationWithRange(string Symbol, int Days = 30, bool AllDays = true)
@@ -61,6 +80,11 @@ namespace FinancialAssetManager.Controllers
             return Ok(result.Value);
         }
 
+        /// <summary>
+        /// Remoção de um chart da base a partir de um symbol ( ativo )
+        /// </summary>
+        /// <param name="Symbol"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("Delete")]
         public async Task<IActionResult> Delete(string Symbol)
@@ -74,6 +98,10 @@ namespace FinancialAssetManager.Controllers
             return Ok(true);
         }
 
+        /// <summary>
+        /// Retorno de todos os charts da base
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("GetList")]
         public async Task<IActionResult> GetList()
