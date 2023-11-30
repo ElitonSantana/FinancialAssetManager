@@ -314,9 +314,9 @@ namespace FinancialAssetManager.Domain.Services
                         {
                             Id = i,
                             TradingDate = ConvertTimeStampToDateTime(tradingDates[i]),
-                            AssetValue = assetValues[i],
-                            FirstDayVariationValue = i == 0 ? "-" : GetValueOfVariation(assetValues[i], assetValues[i - 1]),
-                            ValueOfYesterdayChange = i == 0 ? "-" : GetValueOfVariation(assetValues[i], assetValues.First())
+                            AssetValue = Double.Parse(assetValues[i].ToString("0.00")),
+                            FirstDayVariationValue = i == 0 ? "-" : GetValueOfVariation(assetValues[i], assetValues.First()),
+                            ValueOfYesterdayChange = i == 0 ? "-" : GetValueOfVariation(assetValues[i], assetValues[i - 1])
                         });
                 }
 
@@ -339,7 +339,7 @@ namespace FinancialAssetManager.Domain.Services
         {
             try
             {
-                return $"{(currentAssetValue - assetValueToCompare) / currentAssetValue * 100}%";
+                return $"{Double.Parse(((currentAssetValue - assetValueToCompare) / currentAssetValue * 100).ToString("0.00"))}%";
             }
             catch (Exception ex)
             {
